@@ -5,12 +5,12 @@ import natives from 'natives';
 
 const player = alt.Player.local;
 const markers = [];
-const markersDrawDistance = 150;
+let markersDrawDistance = 150;
 let markersInterval = undefined;
 
 alt.onServer('markers:Create', markersCreate);
 alt.onServer('markers:Delete', markersDelete);
-
+alt.onServer('markers:SetDrawDistance', markersSetDrawDistance);
 /**
  * Creates a new global marker
  *
@@ -38,6 +38,15 @@ function markersDelete(identifier) {
         alt.clearInterval(markersInterval);
         markersInterval = undefined;
     }
+}
+
+/**
+ * Sets the draw distance at which the markers appear
+ *
+ * @param {number} distance
+ */
+function markersSetDrawDistance(distance) {
+    markersDrawDistance = distance;
 }
 
 /**

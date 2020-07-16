@@ -5,6 +5,7 @@ const markers = [];
 
 alt.on('markers:Create', markersCreate);
 alt.on('markers:Delete', markersDelete);
+alt.on('markers:SetDrawDistance', markersSetDrawDistance);
 alt.on('markers:Sync', markersSync);
 
 /**
@@ -40,6 +41,15 @@ function markersDelete(identifier) {
 
     markers.splice(markerIndex, 1);
     alt.emitClient(null, 'markers:Delete', identifier);
+}
+
+/**
+ * Sets the draw distance at which the markers appear
+ *
+ * @param {number} distance
+ */
+function markersSetDrawDistance(distance) {
+    alt.emitClient(null, 'markers:SetDrawDistance', distance);
 }
 
 /**

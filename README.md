@@ -56,6 +56,20 @@ alt.emit('markers:Delete', identifier);
 | ------------ | ------------------------------------------------------------------ |
 | `identifier` | Previously set unique identifier of the marker you wish to delete. |
 
+## Changing the draw distance
+
+```javascript
+// Notice: default draw distance is set to 150.
+```
+
+```javascript
+alt.emit('markers:SetDrawDistance', distance);
+```
+
+| Argument   | Description                                         |
+| ---------- | --------------------------------------------------- |
+| `distance` | Sets the draw distance at which the markers appear. |
+
 ## Syncing the markers with a player
 
 ```javascript
