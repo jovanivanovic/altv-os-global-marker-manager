@@ -32,19 +32,6 @@ There's couple of events to get you started with this resource:
 alt.emit('markers:Create', identifier, label, position, sprite, color, scale, shortRange);
 ```
 
-/\*\*
-
--   Creates a new global marker
--
--   @param {any} identifier
--   @param {number} type
--   @param {alt.Vector3} position
--   @param {alt.Vector3} direction
--   @param {alt.Vector3} rotation
--   @param {alt.Vector3} scale
--   @param {{ red: number, green: number, blue: number, alpha: number }} color
-    \*/
-
 | Argument                            | Description                                                                |
 | ----------------------------------- | -------------------------------------------------------------------------- |
 | `identifier`                        | Unique identifier for the marker, can be anything as long as it is unique. |
