@@ -29,7 +29,7 @@ There's couple of events to get you started with this resource:
 ## Creating a marker
 
 ```javascript
-alt.emit('markers:Create', identifier, label, position, sprite, color, scale, shortRange);
+alt.emit('markers:Create', identifier, type, position, direction, rotation, scale, color);
 ```
 
 | Argument                            | Description                                                                |
