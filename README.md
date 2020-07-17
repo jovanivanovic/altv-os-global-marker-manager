@@ -92,3 +92,4 @@ alt.emit('markers:Sync', player);
 -   [Global Blip Manager by Dzeknjak](https://github.com/jovanivanovic/altv-os-global-blip-manager)
 -   [Chat by Dzeknjak](https://github.com/jovanivanovic/altv-os-chat)
 -   [Nametags by Stuyk](https://github.com/Stuyk/altv-os-nametags)
+-   [Missing Interiors by Dzeknjak](https://github.com/jovanivanovic/altv-os-missing-interiors)
