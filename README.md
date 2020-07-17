@@ -91,3 +91,4 @@ alt.emit('markers:Sync', player);
 -   [Authentication by Stuyk](https://github.com/Stuyk/altv-os-auth)
 -   [Global Blip Manager by Dzeknjak](https://github.com/jovanivanovic/altv-os-global-blip-manager)
 -   [Chat by Dzeknjak](https://github.com/jovanivanovic/altv-os-chat)
+-   [Nametags by Stuyk](https://github.com/Stuyk/altv-os-nametags)
