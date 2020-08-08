@@ -41,6 +41,34 @@ Ensure your `package.json` includes this property:
 "type": "module"
 ```
 
+# Example
+
+```javascript
+import alt from 'alt-server';
+
+// Create a simple red marker
+alt.emit(
+    'markers:Create',
+    0, // unique identifier
+    1, // type of the marker
+    new alt.Vector3(0, 0, 72), // position of the marker
+    new alt.Vector3(0, 0, 0), // direction of the marker
+    new alt.Vector3(0, 0, 0), // rotation of the marker
+    new alt.Vector3(1, 1, 1), // scale of the marker
+    { // color of the marker
+        red: 255, 
+        green: 0, 
+        blue: 0, 
+        alpha: 100 
+    } 
+);
+
+// Sync all of the created markers with the newly connected player
+alt.on('playerConnect', player => {
+    alt.emit('markers:Sync', player);
+});
+```
+
 # Usage
 
 There's couple of events to get you started with this resource:
