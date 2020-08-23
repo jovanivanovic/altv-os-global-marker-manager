@@ -27,7 +27,7 @@ function markersCreate(identifier, type, position, direction, rotation, scale, c
     const marker = { identifier, type, position, direction, rotation, scale, color };
     markers.push(marker);
 
-    alt.emitClient(null, 'marker:Create', marker);
+    alt.emitClient(null, 'markers:Create', marker);
 }
 
 /**
