@@ -4,7 +4,7 @@ import alt from 'alt-client';
 import natives from 'natives';
 
 const player = alt.Player.local;
-const markers = [];
+const markers = {};
 let markersDrawDistance = 150;
 let markersInterval = undefined;
 
@@ -17,7 +17,7 @@ alt.onServer('markers:SetDrawDistance', markersSetDrawDistance);
  * @param {{ identifier: any, type: number, position: alt.Vector3, direction: alt.Vector3, rotation: alt.Vector3, scale: alt.Vector3, color: { red: number, green: number, blue: number, alpha: number }}} blip
  */
 function markersCreate(marker) {
-    markers.push(marker);
+    markers[marker.identifier] = marker;
 
     if (!markersInterval) {
         markersInterval = alt.setInterval(drawMarkers, 0);
@@ -30,9 +30,9 @@ function markersCreate(marker) {
  * @param {any} identifier
  */
 function markersDelete(identifier) {
-    const markerIndex = markers.findIndex(marker => marker.identifier == identifier);
-    if (markerIndex === -1) return;
-    markers.splice(markerIndex, 1);
+    const marker = markers[identifier];
+    if (!marker) return;
+    delete markers[identifier];
 
     if (markers.length < 1 && markersInterval) {
         alt.clearInterval(markersInterval);
@@ -53,10 +53,10 @@ function markersSetDrawDistance(distance) {
  * Draw markers on the screen
  */
 function drawMarkers() {
-    const closeMarkers = markers.filter(marker => player.pos.distance(marker.position) < markersDrawDistance);
-
-    for (const marker of closeMarkers) {
+    for (const markerId in closeMarkers) {
+        const marker = markers[markerId];
         if (!marker) continue;
+        if (player.pos.distance(marker.position) < markersDrawDistance) continue;
 
         natives.drawMarker(
             marker.type,
