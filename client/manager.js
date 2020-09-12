@@ -53,7 +53,7 @@ function markersSetDrawDistance(distance) {
  * Draw markers on the screen
  */
 function drawMarkers() {
-    for (const markerId in closeMarkers) {
+    for (const markerId in markers) {
         const marker = markers[markerId];
         if (!marker) continue;
         if (player.pos.distance(marker.position) < markersDrawDistance) continue;
