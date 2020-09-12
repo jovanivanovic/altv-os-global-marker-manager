@@ -37,7 +37,7 @@ function markersDelete(identifier) {
     const marker = markers[identifier];
     if (!marker) return;
 
-    delete markers{identifier};
+    delete markers[identifier];
     alt.emitClient(null, 'markers:Delete', identifier);
 }
 
